@@ -4,7 +4,7 @@ from task_1 import COSNT_MAX_N
 
 def test_factorial_differtentWorkersCount_theSameResult():
     n = 6
-    
+
     assert factorial(n,1) == factorial(n,5)
 
 def test_factorial_success():
@@ -33,3 +33,11 @@ def test_factorial_n_belowZero_exception():
 def test_factorial_n_moreThanMaxN():
     with pytest.raises(Exception):
         x = factorial(COSNT_MAX_N+1,5)
+
+def test_factorial_incorrectN_exception():
+    with pytest.raises(Exception):
+        x = factorial(5.5,5)
+
+def test_factorial_incorrectNumberOfWorkers_exception():
+    with pytest.raises(Exception):
+        x = factorial(5,5.5)

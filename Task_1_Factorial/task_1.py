@@ -71,8 +71,19 @@ def factorial(n, numberOfworkers, ttl_hash=None):
 
         return finalresult
 
+def isint(s):
+    try:
+        int(s)
+        return True
+    except ValueError:
+        return False
+
 if __name__== "__main__":
-    number = int(sys.argv[1])
-    workers = int(sys.argv[2])
+
+    if (isint(sys.argv[1]) == False or isint(sys.argv[2]) == False):
+         raise Exception("Argeuments are incorrect.")
+    else:
+        number = int(sys.argv[1])
+        workers = int(sys.argv[2])
 
     print("The final result is:", factorial(number, workers, get_ttl_hash()))
