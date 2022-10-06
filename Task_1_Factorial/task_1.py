@@ -79,7 +79,6 @@ def isint(s):
         return False
 
 if __name__== "__main__":
-
     if (isint(sys.argv[1]) == False or isint(sys.argv[2]) == False):
          raise Exception("Argeuments are incorrect.")
     else:
