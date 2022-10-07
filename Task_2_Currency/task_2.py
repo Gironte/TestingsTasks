@@ -32,6 +32,9 @@ def fillGraph(config):
     return Graph(nodes, init_graph)
 
 def run(start_currency, target_currency, config):
+    if (start_currency == target_currency):
+        raise Exception(f"{start_currency} = {target_currency}")
+    
     graph = fillGraph(config)
 
     if (not start_currency in graph.get_nodes() or not target_currency in graph.get_nodes()):
@@ -40,7 +43,7 @@ def run(start_currency, target_currency, config):
     previous_currencies = deikstra_algorithm(graph, start_currency)
 
     if (previous_currencies == {}):
-        Exception(f"Relevant path for exchange {start_currency} -> {target_currency} has not been found.")
+        raise Exception(f"Relevant path for exchange {start_currency} -> {target_currency} has not been found.")
 
     return find_shortest_path(previous_currencies, start_currency, target_currency)
 

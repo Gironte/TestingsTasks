@@ -27,6 +27,10 @@ def test_run_incorrectCurrency_exception():
      with pytest.raises(Exception):
         task_2.run("ERR", "QQQ", config)
 
+def test_run_incorrectCurrency_exception():
+     with pytest.raises(Exception):
+        task_2.run("AUD", "AUD", config)
+
 def test_run_incorrectInput_exception():
      with pytest.raises(Exception):
         task_2.run(True, 123, config)
