@@ -1,3 +1,4 @@
+import math
 import pytest
 from task_1 import factorial
 from task_1 import COSNT_MAX_N
@@ -9,12 +10,8 @@ def test_factorial_differtentWorkersCount_theSameResult():
 
 def test_factorial_success():
     n = 23
-    fact = 1
 
-    for i in range(1,n+1):
-        fact = fact * i
-
-    assert factorial(n,5) == fact
+    assert factorial(n,5) == math.factorial(n)
 
 def test_factorial_0_success():
     n = 0
@@ -28,12 +25,8 @@ def test_factorial_1_success():
 
 def test_factorial_99999_success():
     n = 99999
-    fact = 1
 
-    for i in range(1,n+1):
-        fact = fact * i
-
-    assert factorial(n,5) == fact
+    assert factorial(n,5) == math.factorial(n)
 
 def test_factorial_n_belowZero_exception():
     with pytest.raises(Exception):
