@@ -15,9 +15,7 @@ class Worker(threading.Thread):
         self.name = name
         self.result = 0
     def run(self):
-        print(f"Starting the worker - {self.name}")
         self.result = process_queue(self.name)
-        print(f"Completed the worker - {self.name} with result {self.result}")
 
 def process_queue(name):
         result = 0
@@ -28,8 +26,7 @@ def process_queue(name):
                     result = value
                 else:
                     result = result * value
-                
-                print("Worker", name, "value", value, "result", result)
+                    
             except queue.Empty:
                 return result
 
@@ -84,4 +81,4 @@ if __name__== "__main__":
     number = int(sys.argv[1])
     workers = int(sys.argv[2])
 
-    print("The final result is:", factorial(number, workers, get_ttl_hash()))
+    factorial(number, workers, get_ttl_hash())

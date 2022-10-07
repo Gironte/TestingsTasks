@@ -26,6 +26,15 @@ def test_factorial_1_success():
 
     assert factorial(n,5) == 1
 
+def test_factorial_99999_success():
+    n = 99999
+    fact = 1
+
+    for i in range(1,n+1):
+        fact = fact * i
+
+    assert factorial(n,5) == fact
+
 def test_factorial_n_belowZero_exception():
     with pytest.raises(Exception):
         x = factorial(-1,5)
